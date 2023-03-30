@@ -1,25 +1,22 @@
-const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', handleSubmit);
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact Form Details</title>
+  </head>
+  <body>
+    <h2>Contact Form Details</h2>
+    <?php
+      $name = $_POST['name'];
+      $email = $_POST['email'];
+      $message = $_POST['message'];
+      $gender = $_POST['gender'];
+      $country = $_POST['country'];
 
-function handleSubmit(event) {
-  event.preventDefault();
-  const formData = new FormData(event.target);
-  const title = formData.get('title');
-  const firstName = formData.get('first-name');
-  const lastName = formData.get('last-name');
-  const dob = formData.get('dob');
-  const telephone = formData.get('telephone');
-  const fileUpload = formData.get('file-upload');
-  const email = formData.get('email');
-  const message = formData.get('message');
-  
-  // Do form validation here
-  
-  const messageEl = document.createElement('p');
-  messageEl.textContent = `Thank you ${title} ${firstName} ${lastName}.\nYou have submitted the following details:\nDate of Birth: ${dob}\nTelephone: ${telephone}\nFile Uploaded: ${fileUpload}\nMessage: ${message}`;
-  
-  // Display message on next screen here
-  
-  contactForm.reset();
-}
-
+      echo "<p><strong>Name:</strong> $name</p>";
+      echo "<p><strong>Email:</strong> $email</p>";
+      echo "<p><strong>Message:</strong> $message</p>";
+      echo "<p><strong>Gender:</strong> $gender</p>";
+      echo "<p><strong>Country:</strong> $country</p>";
+    ?>
+  </body>
+</html>
